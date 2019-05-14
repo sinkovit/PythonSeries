@@ -33,3 +33,6 @@ ake a few minutes to read.
 
 Introduces the basics of formatting math using LaTeX. Can be used both in the markdown cells of Jupyter notebooks and the figure elements (e.g. titles, axis labels, legends) of plotting packages such as Matplotlib.
 
+**strings.ipynb**
+
+Introduces a few more string handling features, including how to access useful string constants (so, for example, you don't have to keep typing 'abcdefghijklmnopqrstuvwxyz' every time you need a list of lowercase letters).
