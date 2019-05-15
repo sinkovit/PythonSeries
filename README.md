@@ -12,7 +12,7 @@ If you're new to Python, we recommend that you start here. This notebook covers 
 
 **Numpy.ipynb**
 
-Suggested starting point after Python basics. Provides a brief introduction to numpy, the widely used Python numerical math library. The emphasis is on working with the n-dimensional array (ndarray) object tyupe, followed by two topics that are relevant to data science: linear algebra and sampling from random distributions.
+Suggested starting point after Python basics. Provides a brief introduction to numpy, the widely used Python numerical math library. The emphasis is on working with the n-dimensional array (ndarray) object tyupe, followed by two topics that are relevant to data science: linear algebra and sampling from random distrobutions.
 
 **Pandas.ipynb**
 
