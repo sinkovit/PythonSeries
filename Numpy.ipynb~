@@ -47,7 +47,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import numpy as np"
+    "import numpy as np"you
    ]
   },
   {
@@ -234,7 +234,271 @@
    "source": [
     "Basic math operations are performed elementwise on conforming arrays (arrays of the same shape). Scalar arguments are applied to each element\n",
     "\n",
-    "Universal functions (ufunc) are applied to each element. Note in the examples below that we did not need   "cell_type": "code",
+    "Universal functions (ufunc) are applied to each element. Note in the examples below that we did not need to use the map function since the NumPy ufuncs are designed to operate on ndarray arguments"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = np.arange(9).reshape(3,3)\n",
+    "b = np.arange(9,18).reshape(3,3)\n",
+    "print(a)\n",
+    "print()\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a+b + 100"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that the \"\\*\" operator does an elementwise multiplication and is not the linear algebra matrix multiply"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a*b"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.sin(a) + np.log(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### A brief digression - how would we have done this with lists?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Arithmetic on Python lists doesn't work the way you might expect. Let's define a couple of conformable lists and add them element by element. Sounds easy enough"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = [ 1,  2,  3]\n",
+    "b = [10, 20, 30]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a+b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "That's not what we wanted. The '+' operator concatenates the elements of the two lists to create a new list with length equal to the sum of the lengths of the original lists. There are multiple ways we can do this, two based on map are shown below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from operator import add\n",
+    "list(map(add, a, b))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list(map(lambda x,y: x+y, a, b))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The second choice is more general since we're not limited to simply adding the elements. Of course, if you're going to be doing a lot of this sort of thing, just use numpy arrays."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sum, min, max, argmin, argmax, cumsum"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The ndarray class has methods for finding the min and max values in an array, their locations (argmin and argmax), the sum and the cumulative sum. When applied to multidimensional arrays, the array is first flattened into a 1d array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.random.seed(123)\n",
+    "a = np.random.rand(6)\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Min :\", a.min())\n",
+    "print(\"Max :\", a.max())\n",
+    "print(\"Sum :\", a.sum())\n",
+    "print(\"Argmin :\", a.argmin())\n",
+    "print(\"Argmax :\", a.argmax())\n",
+    "\n",
+    "print(\"\\nCumlative sum :\\n\", a.cumsum())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For multidimensional arrays, many of these functions can take an argument specifying the axis along which the operations should be applied. The result is an array of dimension one lower than the array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.random.seed(123)\n",
+    "a = np.random.rand(16).reshape(4,4)\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# By column (axis = 0)\n",
+    "print(\"Min :\", a.min(axis=0))\n",
+    "print(\"Max :\", a.max(axis=0))\n",
+    "print(\"Sum :\", a.sum(axis=0))\n",
+    "print(\"Argmin :\", a.argmin(axis=0))\n",
+    "print(\"Argmax :\", a.argmax(axis=0))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# By row (axis = 1)\n",
+    "print(\"Min :\", a.min(axis=1))\n",
+    "print(\"Max :\", a.max(axis=1))\n",
+    "print(\"Sum :\", a.sum(axis=1))\n",
+    "print(\"Argmin :\", a.argmin(axis=1))\n",
+    "print(\"Argmax :\", a.argmax(axis=1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# By entire array \n",
+    "# Note that argmin/max returns index for flattened array (row major order)\n",
+    "print(\"Min :\", a.min())\n",
+    "print(\"Max :\", a.max())\n",
+    "print(\"Sum :\", a.sum())\n",
+    "print(\"Argmin :\", a.argmin())\n",
+    "print(\"Argmax :\", a.argmax())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Stacking and splitting arrays"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "NumPy provides methods for stacking arrays (hstack, vstack) and splitting arrays (hsplit, vsplit). The stacking methods take as input a tuple containing an arbitrary number of arrays."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = np.arange(16).reshape(4,4)\n",
+    "b = np.arange(16,32).reshape(4,4)\n",
+    "print(a)\n",
+    "print()\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.vstack( (a,b) )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = np.hstack( (a,b,a,b) )\n",
+    "print(c)"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": null,
    "metadata": {},
    "outputs": [],
