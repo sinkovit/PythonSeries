@@ -34,10 +34,6 @@ A brief introduction to regression using scikit-learn. Covers basic linear regre
 
 Introduces a few more string handling features, including how to access useful string constants (so, for example, you don't have to keep typing 'abcdefghijklmnopqrstuvwxyz' every time you need a list of lowercase letters). Not essential, but makes for lighter topic once your brain is full.
 
-## Parallel computing with Dask
-
-Introduces the Dask module with a simple example and illustrates the Dask graph
-
 ## Useful material to cover at any time
 
 Although the following resources are not specific to Python, they will be useful as you create your own notebooks. This material can be covered at any time and may serve as an *intermission* after working through some of the more challenging material.
