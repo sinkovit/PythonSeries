@@ -3,4 +3,6 @@ pandas
 matplotlib
 sklearn
 dask
+dask.array
+mkl
 graphviz
