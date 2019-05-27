@@ -1,7 +1,7 @@
 FROM jupyter/scipy-notebook
 
 USER root
-RUN yum-config-manager --add-repo https://yum.repos.intel.com/setup/intelproducts.repo
+RUN yum --add-repo https://yum.repos.intel.com/setup/intelproducts.repo
 
 # python3 setup
 RUN apt-get update && apt-get install -y graphviz
