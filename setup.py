@@ -1,1 +1,1 @@
-pip install graphviz
+graphviz
