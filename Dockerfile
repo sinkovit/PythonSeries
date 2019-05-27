@@ -7,6 +7,8 @@ RUN conda install -y numpy scipy pandas matplotlib toolz pytables python-graphvi
 RUN conda install -y dask distributed
 RUN conda install -y -c conda-forge fastparquet
 
+RUN yum-config-manager --add-repo https://yum.repos.intel.com/setup/intelproducts.repo
+
 USER jovyan
 
 RUN git clone https://github.com/sinkovit/PythonSeries.git ./PythonSeries
