@@ -1,0 +1,7 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+matplotlib==3.3.2
+#matplotlib-base==3.3.2
+#numpy==1.19.2
+#numpy-base==1.19.2
+#numpydoc==1.1.0
