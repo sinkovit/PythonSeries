@@ -49,5 +49,3 @@ Covers the basics of markdown language: headers, italics and emphasis, new lines
 **LaTeX math.ipynb**
 
 Introduces the basics of formatting math using LaTeX. Can be used both in the markdown cells of Jupyter notebooks and the figure elements (e.g. titles, axis labels, legends) of plotting packages such as Matplotlib.
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sinkovit/PythonSeries/HEAD)
